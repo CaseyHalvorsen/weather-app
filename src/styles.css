@@ -7,6 +7,10 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+.footer {
+  text-align: center;
+}
+
 .btn-primary {
   margin-left: -15px;
 }
