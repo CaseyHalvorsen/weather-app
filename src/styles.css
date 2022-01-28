@@ -1,0 +1,96 @@
+body {
+  color: #18164f;
+  padding: 20px;
+  max-width: 570px;
+  display: block;
+  margin: 0 auto;
+  font-family: "Quicksand", sans-serif;
+}
+
+.btn-primary {
+  margin-left: -15px;
+}
+
+.location {
+  margin-left: -15px;
+  color: white;
+  background-color: #5a0cd6;
+  border-color: #5a0cd6;
+}
+.location:hover {
+  background-color: #6c32c9;
+  border-color: #5a0cd6;
+}
+
+h1 {
+  color: #18164f;
+  font-family: "Quicksand", sans-serif;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+.currentTemp {
+  font-size: 100px;
+}
+.degrees {
+  color: #18164f;
+  position: relative;
+  top: -141px;
+  left: 10px;
+  font-size: 40px;
+}
+a {
+  color: #1e1a80;
+}
+.currentPic {
+  text-align: right;
+  font-size: 160px;
+}
+
+.next12 {
+  margin-top: -20px;
+  text-align: center;
+}
+.upcomingTemp {
+  margin-top: -20px;
+  margin-bottom: -9px;
+  font-size: 50px;
+}
+.data {
+  margin-top: -10px;
+  font-size: 15px;
+}
+
+.upcomingWeather {
+  font-size: 15px;
+  margin-bottom: -10px;
+}
+
+.nextWeek {
+  text-align: center;
+}
+
+.col-3 {
+  padding: 0 10px;
+}
+
+.day1 {
+  font-size: 50px;
+}
+
+.day2 {
+  font-size: 50px;
+}
+
+.day3 {
+  font-size: 50px;
+}
+
+.day4 {
+  font-size: 50px;
+}
