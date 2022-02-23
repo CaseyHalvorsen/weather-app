@@ -43,10 +43,6 @@ function formatDate(date) {
   return today;
 }
 
-console.log(formatDate(now));
-
-//On your project, when a user searches for a city (example: New York),
-// it should display the name of the city on the result page and the current temperature of the city.
 function showSearchData(response) {
   let currentTemp = Math.round(response.data.main.temp);
   let nowTemp = document.querySelector("#current-temp");
@@ -70,8 +66,6 @@ city.addEventListener("click", cityName);
 ///Add a Current Location button. When clicking on it, it uses the Geolocation API to get your
 ///GPS coordinates and display and the city and current temperature using the OpenWeather API.
 function showCurrentData(response) {
-  console.log(response.data.name);
-  console.log(response.data.main.temp);
   let currentTemp = Math.round(response.data.main.temp);
   let nowTemp = document.querySelector("#current-temp");
   nowTemp.innerHTML = currentTemp;
@@ -80,8 +74,6 @@ function showCurrentData(response) {
 }
 
 function showLocation(position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
