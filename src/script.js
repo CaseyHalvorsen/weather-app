@@ -97,25 +97,3 @@ function getCurrentLocation(response) {
 let currentButton = document.querySelector("#location-button");
 
 currentButton.addEventListener("click", getCurrentLocation);
-
-// Bonus - Display a fake temperature (i.e 17) in Celsius and add a link to convert it to
-// Fahrenheit. When clicking on it, it should convert the temperature to Fahrenheit.
-// When clicking on Celsius, it should convert it back to Celsius.
-
-function convertTempC(event) {
-  event.preventDefault();
-  let degType = document.querySelector("#current-temp");
-  degType.innerHTML = -8;
-}
-
-let toCelius = document.querySelector("#celsius");
-toCelius.addEventListener("click", convertTempC);
-
-function convertTempF(event) {
-  event.preventDefault();
-  let degType = document.querySelector("#current-temp");
-  degType.innerHTML = 17;
-}
-
-let toFahrenheit = document.querySelector("#fahrenheit");
-toFahrenheit.addEventListener("click", convertTempF);
