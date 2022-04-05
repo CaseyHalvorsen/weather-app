@@ -40,20 +40,24 @@ li {
 
 .currentTemp {
   font-size: 100px;
+  text-align: right;
 }
 .degrees {
   color: #18164f;
   position: relative;
-  top: -141px;
-  left: 10px;
+  top: 20px;
+  left: -18px;
   font-size: 40px;
+  text-align: left;
 }
+
+.currentPic {
+  text-align: left;
+  font-size: 160px;
+}
+
 a {
   color: #1e1a80;
-}
-.currentPic {
-  text-align: right;
-  font-size: 160px;
 }
 
 .description {

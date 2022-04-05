@@ -31,28 +31,43 @@ function formatDate(timestamp) {
   return `${weekday} ${month} ${day}, ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  let forecast = response.data.daily;
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
 
-  let days = ["thu", "fri", "sat", "sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-3">
       <div class="card" style="background-color:#d3ffff">
         <div class="card-body">
           <ul>
             <div class="forecast-date" id="weekday">
-            ${day}
+            ${formatDay(forecastDay.dt)}
             </div>
-            <i class="fas fa-cloud-sun weather-forecast-image"></i>
+            
+            <span class="weather-forecast-image"> ${getIcon(
+              forecastDay.weather[0].icon
+            )}</span>
             <div class="weather-forecast-temperatures">
-              <span class="weather-forecast-temp-max">-14</span>º |
-              <span class="weather-forecast-temp-min">-20</span>º
+              <span class="weather-forecast-temp-max">${Math.round(
+                forecastDay.temp.max
+              )}º</span> |
+              <span class="weather-forecast-temp-min">${Math.round(
+                forecastDay.temp.min
+              )}º</span>
             </div>
           </ul>
         </div>
@@ -60,6 +75,7 @@ function displayForecast(response) {
     </div>
   
   `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -101,28 +117,28 @@ function displayTemperature(response) {
 
 function getIcon(icon) {
   let newIconElement = "";
-  if (icon === "02d" || icon === "03d") {
-    newIconElement = `<i class="fas fa-solid fa-cloud-sun"></i>`;
-  } else if (icon === "02n" || icon === "03n") {
-    newIconElement = `<i class="fas fa-solid fa-cloud-moon"></i>`;
-  } else if (icon === "04d" || icon === "04n") {
-    newIconElement = `<i class="fas fa-solid fa-cloud"></i>`;
-  } else if (icon === "01d") {
-    newIconElement = `<i class="fas fa-solid fa-sun"></i>`;
+  if (icon === "01d") {
+    newIconElement = `<i class="fas fa-sun"></i>`;
   } else if (icon === "01n") {
-    newIconElement = `<i class="fas fa-solid fa-moon"></i>`;
+    newIconElement = `<i class="fas fa-moon"></i>`;
+  } else if (icon === "02d" || icon === "03d") {
+    newIconElement = `<i class="fas fa-cloud-sun"></i>`;
+  } else if (icon === "02n" || icon === "03n") {
+    newIconElement = `<i class="fas fa-cloud-moon"></i>`;
+  } else if (icon === "04d" || icon === "04n") {
+    newIconElement = `<i class="fas fa-cloud"></i>`;
   } else if (icon === "10d") {
-    newIconElement = `<i class="fas fa-solid fa-cloud-sun-rain"></i>`;
+    newIconElement = `<i class="fas fa-cloud-sun-rain"></i>`;
   } else if (icon === "10n") {
-    newIconElement = `<i class="fas fa-solid fa-cloud-moon-rain"></i>`;
+    newIconElement = `<i class="fas fa-cloud-moon-rain"></i>`;
   } else if (icon === "09d" || icon === "09n") {
-    newIconElement = `<i class="fas fa-solid fa-cloud-showers-heavy"></i>`;
+    newIconElement = `<i class="fas fa-cloud-rain"></i>`;
   } else if (icon === "11d" || icon === "11n") {
     newIconElement = `<i class="fas fas fa-bolt"></i>`;
   } else if (icon === "13d" || icon === "13n") {
-    newIconElement = `<i class="fas fa-solid fa-snowflake"></i>`;
+    newIconElement = `<i class="far fa-snowflake"></i>`;
   } else if (icon === "50d" || icon === "50n") {
-    newIconElement = `<i class="fas fa-solid fa-smog"></i>`;
+    newIconElement = `<i class="fas fa-smog"></i>`;
   }
   return newIconElement;
 }
