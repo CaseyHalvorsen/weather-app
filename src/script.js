@@ -31,7 +31,8 @@ function formatDate(timestamp) {
   return `${weekday} ${month} ${day}, ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -65,6 +66,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -84,11 +93,10 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.innerHTML = getIcon(response.data.weather[0].icon);
 
-  //  let currentTemp = Math.round(response.data.main.temp);
-  //  let nowTemp = document.querySelector("#current-temp");
-  //  nowTemp.innerHTML = currentTemp;
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
+
+  getForecast(response.data.coord);
 }
 
 function getIcon(icon) {
@@ -153,5 +161,3 @@ let currentButton = document.querySelector("#location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
 search("Fort Frances");
-
-displayForecast();
