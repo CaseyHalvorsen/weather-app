@@ -43,7 +43,7 @@ function displayForecast(response) {
       forecastHTML +
       `
     <div class="col-3">
-      <div class="card next-week" style="background-color:#d3ffff">
+      <div class="card" style="background-color:#d3ffff">
         <div class="card-body">
           <ul>
             <div class="forecast-date" id="weekday">
