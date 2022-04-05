@@ -43,10 +43,24 @@ function formatDate(date) {
   return today;
 }
 
-function showSearchData(response) {
-  let currentTemp = Math.round(response.data.main.temp);
-  let nowTemp = document.querySelector("#current-temp");
-  nowTemp.innerHTML = currentTemp;
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let feelsElement = document.querySelector("#feelsLike");
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
+  feelsElement.innerHTML = Math.round(response.data.main.feels_like);
+
+  //  let currentTemp = Math.round(response.data.main.temp);
+  //  let nowTemp = document.querySelector("#current-temp");
+  //  nowTemp.innerHTML = currentTemp;
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
 }
@@ -57,7 +71,7 @@ function cityName(event) {
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
 
-  axios.get(`${apiUrl}&apikey=${apiKey}&units=metric`).then(showSearchData);
+  axios.get(`${apiUrl}&apikey=${apiKey}&units=metric`).then(displayTemperature);
 }
 
 let city = document.querySelector("#search-location");
@@ -67,8 +81,8 @@ city.addEventListener("click", cityName);
 ///GPS coordinates and display and the city and current temperature using the OpenWeather API.
 function showCurrentData(response) {
   let currentTemp = Math.round(response.data.main.temp);
-  let nowTemp = document.querySelector("#current-temp");
-  nowTemp.innerHTML = currentTemp;
+  //let nowTemp = document.querySelector("#current-temp");
+  //nowTemp.innerHTML = currentTemp;
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
 }

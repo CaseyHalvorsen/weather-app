@@ -50,11 +50,11 @@
             </div>
           </form>
           <br>
-          <h1 id="current-city">Fort Frances, Ont</h1>
+          <h1 id="city"></h1>
           <h3 class="curentDate" id="current-date"></h3>
           <div class="row current">
             <div class="col-6">
-              <p class="currentTemp" id="current-temp"> -8</p>
+              <p class="currentTemp" id="temperature"></p>
             </div>
             <div class="col-6">
               <i class="fas fa-cloud-moon currentPic"></i>
@@ -64,24 +64,22 @@
           <div class="row">
             <div class="col-3">
               <h5 class="windchill">
-                Feels Like
-                <p>-12</p>
+                Feels Like 
+                <p><span id="feelsLike"></span></p>
               </h4>
             </div>
             <div class="col-3 degrees">
              ºC
             </div>
-            <div class="col-6">
-              Partly Cloudy
+            <div class="col-6 description" id="description">
             </div>
           </div>
 
           <div class="row">
             <div class="col-4 data">
               <ul>
-                <li>POP 20%</li>
-                <li>Wind: 20 km/hr</li>
-                <li>Humidity: 20%</li>
+                <li>Wind: <span id="wind"></span> km/hr</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
               </ul>          
             </div>
             <div class="col-4 next12">

@@ -56,6 +56,10 @@ a {
   font-size: 160px;
 }
 
+.description {
+  text-transform: capitalize;
+}
+
 .next12 {
   margin-top: -20px;
   text-align: center;
