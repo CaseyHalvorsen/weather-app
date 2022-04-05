@@ -89,9 +89,9 @@ function getIcon(icon) {
 
 function search(city) {
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&apikey=${apiKey}&units=metric`;
 
-  axios.get(`${apiUrl}&apikey=${apiKey}&units=metric`).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function handleSubmit(event) {
@@ -100,18 +100,15 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-let city = document.querySelector("#search-location");
-city.addEventListener("click", handleSubmit);
-
 function showLocation(position) {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&apikey=${apiKey}&units=metric`;
 
-  axios.get(`${apiUrl}&apikey=${apiKey}&units=metric`).then(displayTemperature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function getCurrentLocation(event) {
@@ -119,7 +116,10 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
+let city = document.querySelector("#search-location");
+city.addEventListener("click", handleSubmit);
+
 let currentButton = document.querySelector("#location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-search("Kelowna");
+search("Fort Frances");
