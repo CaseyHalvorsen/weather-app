@@ -39,6 +39,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let feelsElement = document.querySelector("#feelsLike");
   let dateElement = document.querySelector("#current-date");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -47,6 +48,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.innerHTML = getIcon(response.data.weather[0].icon);
 
   //  let currentTemp = Math.round(response.data.main.temp);
   //  let nowTemp = document.querySelector("#current-temp");
@@ -55,6 +57,34 @@ function displayTemperature(response) {
   location.innerHTML = response.data.name;
 
   console.log(response.data);
+}
+
+function getIcon(icon) {
+  let newIconElement = "";
+  if (icon === "02d" || icon === "03d") {
+    newIconElement = `<i class="fas fa-solid fa-cloud-sun"></i>`;
+  } else if (icon === "02n" || icon === "03n") {
+    newIconElement = `<i class="fas fa-solid fa-cloud-moon"></i>`;
+  } else if (icon === "04d" || icon === "04n") {
+    newIconElement = `<i class="fas fa-solid fa-cloud"></i>`;
+  } else if (icon === "01d") {
+    newIconElement = `<i class="fas fa-solid fa-sun"></i>`;
+  } else if (icon === "01n") {
+    newIconElement = `<i class="fas fa-solid fa-moon"></i>`;
+  } else if (icon === "10d") {
+    newIconElement = `<i class="fas fa-solid fa-cloud-sun-rain"></i>`;
+  } else if (icon === "10n") {
+    newIconElement = `<i class="fas fa-solid fa-cloud-moon-rain"></i>`;
+  } else if (icon === "09d" || icon === "09n") {
+    newIconElement = `<i class="fas fa-solid fa-cloud-showers-heavy"></i>`;
+  } else if (icon === "11d" || icon === "11n") {
+    newIconElement = `<i class="fas fas fa-bolt"></i>`;
+  } else if (icon === "13d" || icon === "13n") {
+    newIconElement = `<i class="fas fa-solid fa-snowflake"></i>`;
+  } else if (icon === "50d" || icon === "50n") {
+    newIconElement = `<i class="fas fa-solid fa-smog"></i>`;
+  }
+  return newIconElement;
 }
 
 function cityName(event) {
@@ -88,3 +118,5 @@ function getCurrentLocation(event) {
 let currentButton = document.querySelector("#location-button");
 
 currentButton.addEventListener("click", getCurrentLocation);
+
+search("Kelowna");
