@@ -31,6 +31,40 @@ function formatDate(timestamp) {
   return `${weekday} ${month} ${day}, ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["thu", "fri", "sat", "sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-3">
+      <div class="card next-week" style="background-color:#d3ffff">
+        <div class="card-body">
+          <ul>
+            <div class="forecast-date" id="weekday">
+            ${day}
+            </div>
+            <i class="fas fa-cloud-sun weather-forecast-image"></i>
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temp-max">-14</span>º |
+              <span class="weather-forecast-temp-min">-20</span>º
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -55,8 +89,6 @@ function displayTemperature(response) {
   //  nowTemp.innerHTML = currentTemp;
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
-
-  console.log(response.data);
 }
 
 function getIcon(icon) {
@@ -101,8 +133,6 @@ function handleSubmit(event) {
 }
 
 function showLocation(position) {
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
@@ -123,3 +153,5 @@ let currentButton = document.querySelector("#location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
 search("Fort Frances");
+
+displayForecast();
