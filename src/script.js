@@ -1,7 +1,3 @@
-//Challenge 1 - display the current date and time using JavaScript: Tuesday 16:00
-
-let now = new Date();
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -33,35 +29,6 @@ function formatDate(timestamp) {
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
   let weekday = days[date.getDay()];
   return `${weekday} ${month} ${day}, ${hours}:${minutes}`;
-}
-
-function OldformatDate(date) {
-  let weekday = weekdays[date.getDay()];
-
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "June",
-    "July",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[date.getMonth()];
-  let day = date.getDate();
-  let hours = date.getHours();
-  let mins = date.getMinutes();
-
-  let current = `${weekday} ${month} ${day} | ${hours}:${mins} `;
-
-  let today = document.querySelector("current-date");
-  today.innerHTML = current;
-  return today;
 }
 
 function displayTemperature(response) {
