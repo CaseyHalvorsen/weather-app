@@ -2,43 +2,64 @@
 
 let now = new Date();
 
-function formatDate(date) {
-  let weekdays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let weekday = weekdays[date.getDay()];
-
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let months = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
     "June",
     "July",
-    "August",
-    "september",
-    "October",
-    "November",
-    "December",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
+
+  let day = date.getDate();
+
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let weekday = days[date.getDay()];
+  return `${weekday} ${month} ${day}, ${hours}:${minutes}`;
+}
+
+function OldformatDate(date) {
+  let weekday = weekdays[date.getDay()];
+
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   let month = months[date.getMonth()];
   let day = date.getDate();
   let hours = date.getHours();
   let mins = date.getMinutes();
-  if (mins < 10) {
-    mins = `0${mins}`;
-  }
 
   let current = `${weekday} ${month} ${day} | ${hours}:${mins} `;
 
-  let today = document.querySelector("h3");
+  let today = document.querySelector("current-date");
   today.innerHTML = current;
   return today;
 }
@@ -50,19 +71,23 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let feelsElement = document.querySelector("#feelsLike");
+  let dateElement = document.querySelector("#current-date");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 
   //  let currentTemp = Math.round(response.data.main.temp);
   //  let nowTemp = document.querySelector("#current-temp");
   //  nowTemp.innerHTML = currentTemp;
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
+
+  console.log(response.data);
 }
 
 function cityName(event) {
@@ -89,6 +114,7 @@ function showLocation(position) {
 }
 
 function getCurrentLocation(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 

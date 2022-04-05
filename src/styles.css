@@ -75,6 +75,7 @@ a {
 }
 
 .upcomingWeather {
+  text-transform: capitalize;
   font-size: 15px;
   margin-bottom: -10px;
 }
