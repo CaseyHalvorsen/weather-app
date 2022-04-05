@@ -87,17 +87,21 @@ function getIcon(icon) {
   return newIconElement;
 }
 
-function cityName(event) {
-  event.preventDefault();
-  let city = document.querySelector("#city-input").value;
+function search(city) {
   let apiKey = "e453dcffbf8a3bfa3b73ca0ef03b7a30";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}`;
 
   axios.get(`${apiUrl}&apikey=${apiKey}&units=metric`).then(displayTemperature);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
 let city = document.querySelector("#search-location");
-city.addEventListener("click", cityName);
+city.addEventListener("click", handleSubmit);
 
 function showLocation(position) {
   console.log(position.coords.latitude);
@@ -116,7 +120,6 @@ function getCurrentLocation(event) {
 }
 
 let currentButton = document.querySelector("#location-button");
-
 currentButton.addEventListener("click", getCurrentLocation);
 
 search("Kelowna");
