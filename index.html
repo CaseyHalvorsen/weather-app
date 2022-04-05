@@ -64,8 +64,8 @@
           <div class="row">
             <div class="col-3">
               <h5 class="windchill">
-                Feels Like 
-                <p><span id="feelsLike"></span></p>
+                Feels Like: 
+                <p><span id="feelsLike"></span>ºC</p>
               </h4>
             </div>
             <div class="col-3 degrees">
@@ -100,21 +100,24 @@
           <div class="row">
             <div class="col-3" >
               <div class="card" style="background-color:#d3ffff">
-                <div class="card-body nextWeek">
+                <div class="card-body next-week">
                   <ul>
-                    <li id="weekday">Sat</li>
-                    <li><i class="fas fa-cloud-sun day1"></i></li>
-                    <li>-14 | -20</li>
+                    <div class="forecast-date" id="weekday">Sat</div>
+                    <i class="fas fa-cloud-sun weather-forecast-image"></i>
+                    <div class="weather-forecast-temperatures">
+                      <span class="weather-forecast-temp-max">-14</span>º | 
+                      <span class="weather-forecast-temp-min">-20</span>º
+                    </div>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="col-3">
               <div class="card" style="background-color:#d3ffff">
-                <div class="card-body nextWeek">
+                <div class="card-body next-week">
                   <ul>
                     <li id="weekday">Sun</li>
-                    <li><i class="fas fa-cloud-sun day2"></i></li>
+                    <li><i class="fas fa-cloud-sun weather-forecast-image"></i></li>
                     <li>-14 | -20</li>
                   </ul>
                 </div>
@@ -122,20 +125,20 @@
             </div>
             <div class="col-3" >
               <div class="card" style="background-color:#d3ffff">
-                <div class="card-body nextWeek">
+                <div class="card-body next-week">
                   <ul>
                     <li id="weekday">Mon</li>
-                    <li>  <i class="far fa-snowflake day3"></i></li>
+                    <li>  <i class="far fa-snowflake weather-forecast-image"></i></li>
                     <li>-14 | -20</li>
                 </div>
               </div>
             </div>
             <div class="col-3">
               <div class="card" style="background-color:#d3ffff">
-                <div class="card-body nextWeek">
+                <div class="card-body next-week">
                   <ul>
                     <li id="weekday">Tues</li>
-                    <li><i class="far fa-snowflake day4"></i></li>
+                    <li><i class="far fa-snowflake weather-forecast-image"></i></li>
                    <li> -14 | -20</li>
                   </ul>
                 </div>

@@ -75,32 +75,26 @@ a {
 }
 
 .upcomingWeather {
-  text-transform: capitalize;
-  font-size: 15px;
   margin-bottom: -10px;
 }
-
-.nextWeek {
-  text-align: center;
-}
-
 .col-3 {
   padding: 0 10px;
 }
-
-.day1 {
-  font-size: 50px;
+.next-week {
+  text-transform: capitalize;
+  font-size: 15px;
+  text-align: center;
 }
 
-.day2 {
-  font-size: 50px;
+.weather-forecast-temp-min {
+  opacity: 0.7;
 }
 
-.day3 {
-  font-size: 50px;
+.forecast-date {
+  opacity: 0.7;
 }
 
-.day4 {
+.weather-forecast-image {
   font-size: 50px;
 }
 
