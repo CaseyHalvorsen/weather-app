@@ -91,6 +91,7 @@ function getForecast(coordinates) {
 }
 
 function displayTemperature(response) {
+  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -99,6 +100,8 @@ function displayTemperature(response) {
   let feelsElement = document.querySelector("#feelsLike");
   let dateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#icon");
+  let highElement = document.querySelector("#daily-high");
+  let lowElement = document.querySelector("#daily-low");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
@@ -108,7 +111,8 @@ function displayTemperature(response) {
   feelsElement.innerHTML = Math.round(response.data.main.feels_like);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.innerHTML = getIcon(response.data.weather[0].icon);
-
+  highElement.innerHTML = Math.round(response.data.main.temp_max);
+  lowElement.innerHTML = Math.round(response.data.main.temp_min);
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
 

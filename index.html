@@ -52,48 +52,44 @@
           <br>
           <h1 id="city"></h1>
           <h5 class="currentDate">Updated on <span id="current-date"></span></h5>
-          <div class="row current">
-            <div class="col-4">
-              <p class="currentTemp" id="temperature"></p>
+          <div class="current">
+            <div class="row">
+              <div class="col-4">
+                <p class="currentTemp" id="temperature"></p>
+              </div>
+              <div class="col-2 degrees">ºC</div>
+              <div class="col-6">
+                <span class="icon" id="icon"></span>
+              </div>
             </div>
-            <div class="col-4 degrees">
-  ºC
-            </div>
-            <div class="col-4">
-              <span class="icon" id="icon"></span>
+          </div>
+          <div class="wind-descrip">
+            <div class="row">
+              <div class="col-6">
+               
+                  Feels Like: 
+                  <span id="feelsLike"></span>ºC
+               
+              </div>
+              <div class="col-6">
+                  <span id="description"></span>  
+              </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-3">
-              <h5 class="windchill">
-                Feels Like: 
-                <p><span id="feelsLike"></span>ºC</p>
-              </h4>
-            </div>
-            <div class="col-3 degrees">
-           
-            </div>
-            <div class="col-6 description" id="description">
-            </div>
-          </div>
 
           <div class="row">
-            <div class="col-4 data">
-              <ul>
-                <li>Wind: <span id="wind"></span> km/hr</li>
-                <li>Humidity: <span id="humidity"></span>%</li>
-              </ul>          
+            <div class="col-3 data">
+               <p>Humidity: <span id="humidity"></span>%</p>  
             </div>
-            <div class="col-4 next12">
-                   <h5>Evening</h5>
-              <div class="upcomingTemp">-10</div>
-              <div>Partly Cloudy</div>
+            <div class="col-3 data">
+              <p> Wind: <span id="wind"></span> km/hr</p>
             </div>
-            <div class="col-4 next12">
-              <h5>Overnight</h5>
-              <div class="upcomingTemp">-18</div>
-              <div>Partly Cloudy</div>
+            <div class="col-3 data">
+              <p>Today's High: <span id="daily-high"></span>ºC</p>
+            </div>
+            <div class="col-3 data">
+              <p>Today's Low: <span id="daily-low"></span>ºC</p>
             </div>
           </div>
 

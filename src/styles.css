@@ -38,6 +38,11 @@ li {
   list-style: none;
 }
 
+.current {
+  margin-bottom: -12px;
+  margin-top: -12px;
+}
+
 .currentTemp {
   font-size: 100px;
   text-align: right;
@@ -60,14 +65,11 @@ a {
   color: #1e1a80;
 }
 
-.description {
+.wind-descrip {
   text-transform: capitalize;
+  font-size: 20px;
 }
 
-.next12 {
-  margin-top: -20px;
-  text-align: center;
-}
 .upcomingTemp {
   margin-top: -20px;
   margin-bottom: -9px;
@@ -80,9 +82,6 @@ a {
 
 .upcomingWeather {
   margin-bottom: -10px;
-}
-.col-3 {
-  padding: 0 10px;
 }
 
 .weather-forecast {
