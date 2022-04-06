@@ -113,6 +113,7 @@ function displayTemperature(response) {
   iconElement.innerHTML = getIcon(response.data.weather[0].icon);
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
+
   let location = document.querySelector("h1");
   location.innerHTML = response.data.name;
 

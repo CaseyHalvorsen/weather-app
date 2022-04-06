@@ -50,49 +50,53 @@
             </div>
           </form>
           <br>
-          <h1 id="city"></h1>
+          <h1 class="cityName" id="city"></h1>
           <h5 class="currentDate">Updated on <span id="current-date"></span></h5>
+ 
+ 
           <div class="current">
             <div class="row">
-              <div class="col-4">
-                <p class="currentTemp" id="temperature"></p>
+              <div class="col-4 currentTemp">
+                <span  id="temperature"></span>
               </div>
               <div class="col-2 degrees">ºC</div>
-              <div class="col-6">
+              <div class="col-6 currentPic">
                 <span class="icon" id="icon"></span>
               </div>
             </div>
-          </div>
-          <div class="wind-descrip">
-            <div class="row">
+
+
+            <div class="row wind-descrip">
               <div class="col-6">
-               
-                  Feels Like: 
-                  <span id="feelsLike"></span>ºC
-               
+                  <span>
+                    Feels Like: <span id="feelsLike"></span>ºC
+                  </span>
               </div>
+
               <div class="col-6">
-                  <span id="description"></span>  
+                <span class="description" id="description"></span>
               </div>
             </div>
           </div>
 
+        <div class="data">
+          <div class="row stats"> 
+            <div class="col-4">
+              <ul>
+                <li>Wind: <span id="wind"></span> km/hr</li>
+                <li>Humidity: <span id="humidity"></span>%</li>
+              </ul>   
+            </div>
+              <div class="col-4 highLow">
+                  <p>Today's High: <span id="daily-high"></span>ºC</p>
+              </div>
+              <div class="col-4 highLow">
+                  <div>Tonight's Low: <span id="daily-low"></span>ºC</div>
+              </div>
 
-          <div class="row">
-            <div class="col-3 data">
-               <p>Humidity: <span id="humidity"></span>%</p>  
-            </div>
-            <div class="col-3 data">
-              <p> Wind: <span id="wind"></span> km/hr</p>
-            </div>
-            <div class="col-3 data">
-              <p>Today's High: <span id="daily-high"></span>ºC</p>
-            </div>
-            <div class="col-3 data">
-              <p>Today's Low: <span id="daily-low"></span>ºC</p>
-            </div>
           </div>
-
+        </div>
+<hr>
 <div class="upcomingWeather">
   <p>Upcoming Weather</p>
 </div>
