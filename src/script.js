@@ -174,7 +174,7 @@ function getCurrentLocation(event) {
 }
 
 let city = document.querySelector("#search-location");
-city.addEventListener("click", handleSubmit);
+city.addEventListener("submit", handleSubmit);
 
 let currentButton = document.querySelector("#location-button");
 currentButton.addEventListener("click", getCurrentLocation);
